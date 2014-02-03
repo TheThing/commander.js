@@ -597,7 +597,6 @@ Command.prototype.missingArgument = function(name){
   console.error();
   console.error("  error: missing required argument `%s'", name);
   console.error();
-  process.exit(1);
 };
 
 /**
@@ -616,7 +615,6 @@ Command.prototype.optionMissingArgument = function(option, flag){
     console.error("  error: option `%s' argument missing", option.flags);
   }
   console.error();
-  process.exit(1);
 };
 
 /**
@@ -630,7 +628,6 @@ Command.prototype.unknownOption = function(flag){
   console.error();
   console.error("  error: unknown option `%s'", flag);
   console.error();
-  process.exit(1);
 };
 
 
@@ -653,7 +650,6 @@ Command.prototype.version = function(str, flags){
   this.option(flags, 'output the version number');
   this.on('version', function(){
     console.log(str);
-    process.exit(0);
   });
   return this;
 };
@@ -801,7 +797,6 @@ Command.prototype.outputHelp = function(){
 
 Command.prototype.help = function(){
   this.outputHelp();
-  process.exit();
 };
 
 /**
@@ -845,7 +840,6 @@ function outputHelpIfNecessary(cmd, options) {
   for (var i = 0; i < options.length; i++) {
     if (options[i] == '--help' || options[i] == '-h') {
       cmd.outputHelp();
-      process.exit(0);
     }
   }
 }
